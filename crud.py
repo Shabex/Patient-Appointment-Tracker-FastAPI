@@ -16,6 +16,9 @@ def create_patient(db: Session, data: schemas.PatientCreate):
 def get_patient(db: Session, patient_id: int):
     return db.query(models.Patient).filter(models.Patient.id == patient_id).first()
 
+def get_doctor (db:Session, doctor_name: str):
+    return db.query(models.Patient).filter(models.Patient.doctor == doctor_name).all()
+
 ## READ ALL THE RECORDS
 def get_all_patients(db: Session):
     return db.query(models.Patient).all()
